@@ -46,7 +46,7 @@ class UsersController extends Controller{
         $user->role = "Customer";
         if($user->save()){
             Auth::loginUsingId($user->id);
-            Session::flash('success', 'Thank you for being a part of Andora MFG. You are now logged in');
+            Session::flash('success', 'Thank you for being a part of Sharpower. You are now logged in');
             return redirect('customers/profile');
         }
         else{
