@@ -104,7 +104,7 @@
 
                 <div class="col-lg-7 col-md-12">
                     <div class="contact-form">
-                        <form id="contactForm">
+                        <form id="contactForm"  method="post" action="{{url('post_contact')}}">
                             <div class="row">
                                 <div class="col-lg-6 col-md-6">
                                     <div class="form-group">

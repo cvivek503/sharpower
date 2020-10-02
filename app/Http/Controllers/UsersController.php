@@ -140,9 +140,9 @@ class UsersController extends Controller{
         ];
         $body = $request->input('message'). " phone: ".$data['phone']. " email: ".$data['email'];
         Mail::raw($body,  function($message) use($data){
-            $message->from('info@airtnd.com', 'AirTnd contact form');
+            $message->from('support@sharpower.ng', 'Sharpower contact form');
             $message->SMTPDebug = 4; 
-            $message->to("info@airtnd.com");
+            $message->to("support@sharpower.ng");
             $message->subject('Contact form enquiry');
             
         });   
