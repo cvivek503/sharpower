@@ -70,7 +70,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="single-pricing-box" style="min-height: 307px">
+                    <div class="single-pricing-box" style="min-height: 258px">
                         <div class="pricing-header">
                             <h3>Ikeja Electricity Distribution Company </h3>
                             <p>Click buy now if you fall under (IKEDC)</p>
@@ -86,7 +86,7 @@
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-6">
-                    <div class="single-pricing-box" style="min-height: 307px">
+                    <div class="single-pricing-box" style="min-height: 258px">
                         <div class="pricing-header">
                             <h3>Eko Electricity Distribution Company </h3>
                             <p>Click buy now if you fall under (EKEDC)</p>
