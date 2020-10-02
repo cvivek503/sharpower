@@ -1,28 +1,71 @@
+<script src="{{asset('public/customer/js/jquery.min.js')}}"></script>
+    <script src="{{asset('public/customer/js/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{asset('public/customer/js/metismenu.min.js')}}"></script>
+    <script src="{{asset('public/customer/js/jquery.slimscroll.js')}}"></script>
+    <script src="{{asset('public/customer/js/waves.min.js')}}"></script>
 
-	<!-- Bottom scripts (common) -->
-	<script src="{{asset('public/admin/js/gsap/TweenMax.min.js')}}"></script>
-	<script src="{{asset('public/admin/js/jquery-ui/js/jquery-ui-1.10.3.minimal.min.js')}}"></script>
-	<script src="{{asset('public/admin/js/bootstrap.js')}}"></script>
-	<script src="{{asset('public/admin/js/joinable.js')}}"></script>
-	<script src="{{asset('public/admin/js/resizeable.js')}}"></script>
-	<script src="{{asset('public/admin/js/neon-api.js')}}"></script>
-	<script src="{{asset('public/admin/js/jvectormap/jquery-jvectormap-1.2.2.min.js')}}"></script>
+    
+    <!-- App js -->
+    <script src="{{asset('public/customer/js/app.js')}}"></script>
 
+	<script src="{{asset('public/admin/sweetalert/docs/assets/sweetalert/sweetalert.min.js')}}"></script>
+    
+@if(Session::has('success'))
+  
+  <script>
+    swal({
+      title: "Success!",
+      text: "{{Session::get('success')}}",
+      icon: "success",
+      buttons: true,
+      //dangerMode: true,
+    });
+    
+	</script>
+  
+@endif
+@if(Session::has('error'))
+    <script>
+    swal("Error!", "{{Session::get('error')}}", "error").then((value) => {
+        });
+    </script>
 
-	<!-- Imported scripts on this page -->
-	<script src="{{asset('public/admin/js/jvectormap/jquery-jvectormap-europe-merc-en.js')}}"></script>
-	<script src="{{asset('public/admin/js/jquery.sparkline.min.js')}}"></script>
-	<script src="{{asset('public/admin/js/rickshaw/vendor/d3.v3.js')}}"></script>
-	<script src="{{asset('public/admin/js/rickshaw/rickshaw.min.js')}}"></script>
-	<script src="{{asset('public/admin/js/raphael-min.js')}}"></script>
-	<script src="{{asset('public/admin/js/morris.min.js')}}"></script>
-	<script src="{{asset('public/admin/js/toastr.js')}}"></script>
-	<script src="{{asset('public/admin/js/neon-chat.js')}}"></script>
+@endif
+@if(Session::has('info'))
+<script>
+swal({
+      title: "Info!",
+      text: "{{Session::get('info')}}",
+      icon: "info",
+      buttons:  ["Later", "Login or Register now"],
+      //dangerMode: true,
+    })
+    .then((login) => {
+      if (login) {
+        $("#meLogin").modal("toggle");
+      } else {
+        
+      }
+    });
+</script>
 
+@endif
+@if(Session::has('info2'))
+<script>
+swal({
+      title: "Info!",
+      text: "{{Session::get('info2')}}",
+      icon: "info",
+      buttons:  ["Later", "Fund wallet now"],
+      //dangerMode: true,
+    })
+    .then((fund) => {
+      if (fund) {
+        window.open("/customers/profile", "_self");
+      } else {
+        
+      }
+    });
+</script>
 
-	<!-- JavaScripts initializations and stuff -->
-	<script src="{{asset('public/admin/js/neon-custom.js')}}"></script>
-
-
-	<!-- Demo Settings -->
-	<script src="{{asset('public/admin/js/neon-demo.js')}}"></script>
+@endif
