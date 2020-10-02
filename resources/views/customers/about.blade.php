@@ -77,7 +77,7 @@
                     <div class="about-image">
                         <img src="{{asset('public/main/img/about-sharpower.jpg')}}" alt="image">
 
-                        <a href="https://www.youtube.com/watch?v=bk7McNUjWgw" class="video-btn popup-youtube"><i class="fas fa-play"></i></a>
+                        {{--<a href="https://www.youtube.com/watch?v=bk7McNUjWgw" class="video-btn popup-youtube"><i class="fas fa-play"></i></a>--}}
                     </div>
                 </div>
             </div>
