@@ -52,7 +52,7 @@ class Handler extends ExceptionHandler
             if ($exception->getStatusCode() == 404) {
                 return response()->view('errors.' . '404', [], 404);
             }else {
-                //return response()->view('errors.' . '500', [], 500);
+                return response()->view('errors.' . '500', [], 500);
                 return response()->json(['error'=> 'Sorry! An unexpected error occured. Kindly try again']);
             }
         }
