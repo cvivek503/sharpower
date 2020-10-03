@@ -35,12 +35,14 @@
     </style>
    </head>
    <body>
+        <!--
       <div class=preloader>
          <div class=loader>
             <div class=shadow></div>
             <div class=box></div>
          </div>
       </div>
+    -->
       <div class="navbar-area navbar-style-two">
          <div class=luvion-responsive-nav>
             <div class=container>
@@ -65,7 +67,7 @@
         <div class="container">
             <div class="page-title-content">
                 <h2>Transactions</h2>
-                <p>Your tansactions here.</p>
+                <p>Your balance is: N{{$balance}}</p>
             </div>
         </div>
     </div>

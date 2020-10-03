@@ -143,10 +143,13 @@ class CustomersController extends Controller{
         if($request->input('payment_method') == "Pay with card"){
             $this->executeTransaction($request->input('price'), $request->input('trn_ref'), "Credit", $user->id, "Customer", "Payment with card (paystack)" );
         }elseif($request->input('payment_method') == "Pay with wallet"){
-
+            if($this->getBalance() < $request->input('price')){
+                Session::flash('error', 'Insufficient fund in your wallet');
+                return redirect('get_tv_variations/'.$request->input('serviceID'));
+            }
         }else {
             Session::flash('error', 'Payment method not captured. Kindly contact administrator');
-            return back();
+            return redirect('tv');
         }
         $billersCode = $request->input('billersCode');
         $price = $request->input('price');
@@ -162,11 +165,11 @@ class CustomersController extends Controller{
                 return redirect('customers/transactions');
             }else{
                 Session::flash('error', 'Unable to load your meter at this moment.');
-                return back();
+                return redirect('get_tv_variations/'.$request->input('serviceID'));
             }
         }   else{
             Session::flash('error', 'Unable to load your meter at this moment.');
-            return back();
+            return redirect('get_tv_variations/'.$request->input('serviceID'));
         }
     }
 
@@ -191,10 +194,13 @@ class CustomersController extends Controller{
         if($request->input('payment_method') == "Pay with card"){
             $this->executeTransaction($request->input('price'), $request->input('trn_ref'), "Credit", $user->id, "Customer", "Payment with card (paystack)" );
         }elseif($request->input('payment_method') == "Pay with wallet"){
-
+            if($this->getBalance() < $request->input('price')){
+                Session::flash('error', 'Insufficient fund in your wallet');
+                return redirect('electricity');
+            }
         }else {
             Session::flash('error', 'Payment method not captured. Kindly contact administrator');
-            return back();
+            return redirect('electricity');
         }
         $meter_number = $request->input('billersCode');
         $price = $request->input('price');
@@ -210,11 +216,11 @@ class CustomersController extends Controller{
                 return redirect('customers/transactions');
             }else{
                 Session::flash('error', 'Unable to load your meter at this moment.');
-                return back();
+                return redirect('electricity');
             }
         }   else{
             Session::flash('error', 'Unable to load your meter at this moment.');
-            return back();
+            return redirect('electricity');
         }
     }
 
@@ -239,7 +245,10 @@ class CustomersController extends Controller{
         if($request->input('payment_method') == "Pay with card"){
             $this->executeTransaction($request->input('price'), $request->input('trn_ref'), "Credit", $user->id, "Customer", "Payment with card (paystack)" );
         }elseif($request->input('payment_method') == "Pay with wallet"){
-
+            if($this->getBalance() < $request->input('price')){
+                Session::flash('error', 'Insufficient fund in your wallet');
+                return redirect('airtime');
+            }
         }else {
             Session::flash('error', 'Payment method not captured. Kindly contact administrator');
             return back();
@@ -256,11 +265,11 @@ class CustomersController extends Controller{
                 return redirect('customers/transactions');
             }else{
                 Session::flash('error', 'Unable to recharge your number at this moment.');
-                return back();
+                return redirect('airtime');
             }
         }   else{
             Session::flash('error', 'Unable to recharge your number at this moment.');
-            return back();
+            return redirect('airtime');
         }
         
     }
@@ -286,7 +295,10 @@ class CustomersController extends Controller{
         if($request->input('payment_method') == "Pay with card"){
             $this->executeTransaction($request->input('price'), $request->input('trn_ref'), "Credit", $user->id, "Customer", "Payment with card (paystack)" );
         }elseif($request->input('payment_method') == "Pay with wallet"){
-
+            if($this->getBalance() < $request->input('price')){
+                Session::flash('error', 'Insufficient fund in your wallet');
+                return redirect('get_data_variations/'.$request->input('serviceID'));
+            }
         }else {
             Session::flash('error', 'Payment method not captured. Kindly contact administrator');
             return back();
@@ -304,11 +316,11 @@ class CustomersController extends Controller{
                 return redirect('customers/transactions');
             }else{
                 Session::flash('error', 'Unable to recharge your number at this moment.');
-                return back();
+                return redirect('get_data_variations/'.$request->input('serviceID'));
             }
         }   else{
             Session::flash('error', 'Unable to recharge your number at this moment.');
-            return back();
+            return redirect('get_data_variations/'.$request->input('serviceID'));
         }
         
     }
@@ -543,6 +555,14 @@ class CustomersController extends Controller{
         $balance = $credit - $debit;
         return view('customers/transactions')->with(compact('transactions', 'balance'));
         
+    }
+
+    public function getBalance(){
+        $user = Auth::user();
+        $credit = Transaction::where(["user_id"=>$user->id, "type"=>"Credit"])->sum('amount');
+        $debit = Transaction::where(["user_id"=>$user->id, "type"=>"Debit"])->sum('amount');
+        $balance = $credit - $debit;
+        return $balance;
     }
     
    

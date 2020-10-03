@@ -29,14 +29,17 @@
         }
     </style>
     <script src="https://js.paystack.co/v1/inline.js"></script>
+    <script src="https://checkout.flutterwave.com/v3.js"></script>
    </head>
    <body>
+        <!--
       <div class=preloader>
          <div class=loader>
             <div class=shadow></div>
             <div class=box></div>
          </div>
       </div>
+        -->
       <div class="navbar-area navbar-style-two">
          <div class=luvion-responsive-nav>
             <div class=container>
@@ -138,7 +141,16 @@
         function validateEmail(email) {
             const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
             return re.test(email);
-            }
+        }
+
+        function payWithWallet(){
+            var d = new Date();
+            var n = d.getTime();
+            n = String(n).slice(n.length - 10);
+            $("#trn_ref").val(n);
+            $("#payment_method").val("Pay with wallet");
+            document.getElementById("contact-form").submit();
+        }
     
     </script>
 
@@ -176,7 +188,7 @@
                                 @if(Auth::user()!=null)
                                 <button class="btn btn-primary btn-block btn-lg waves-effect waves-light" onclick="payWithWallet()" type="button">Pay with wallet</button>
                                 @endif
-                                <button class="btn btn-primary btn-block btn-lg waves-effect waves-light" onclick="payWithCard()" type="button">Pay with card</button>
+                                <button class="btn btn-primary btn-block btn-lg waves-effect waves-light" onclick="payWithCard1()" type="button">Pay with card</button>
                             </div>
                         </div>
                     </form>
@@ -218,8 +230,11 @@
                         ]
                     },
                     callback: function(response){
+                        console.log(response);
+                        /*
                         $("#payment_method").val("Pay with card");
                         document.getElementById("contact-form").submit();
+                        */
                         
                     },
                     onClose: function(){
@@ -231,6 +246,56 @@
             }
         </script>
     </form>
+
+
+
+
+
+    <script>
+        function payWithCard1() {
+            if(document.getElementById('phone').value.length < 11){
+                alert('Kindly provide a valid phone number');
+                return;
+            }
+            var d = new Date();
+            var n = d.getTime();
+            n = String(n).slice(n.length - 10);
+            if(validateEmail(document.getElementById('email').value) != true){
+                alert("Sorry! Your email is not valid");
+                return;
+            }
+            $("#trn_ref").val(n);
+          FlutterwaveCheckout({
+            public_key: "FLWPUBK_TEST-8466a52cc96979c1cc2326f1597e8517-X",
+            tx_ref: n,
+            amount: document.getElementById('price').value,
+            currency: "NGN",
+            country: "NG",
+            payment_options: "card, mobilemoneynigeria, bank, credit, ussd",
+            
+            customer: {
+              email: document.getElementById('email').value,
+              phone_number: document.getElementById('phone').value,
+            },
+            callback: function (data) {
+                if(data.status == "successful" || data.status == "completed"){
+                    $("#payment_method").val("Pay with card");
+                    document.getElementById("contact-form").submit();
+                }
+                
+            },
+            onclose: function() {
+              // close modal
+              alert('Transaction Cancelled');
+            },
+            customizations: {
+              title: "Sharpower",
+              description: "Payment for electricity",
+              logo: "{{asset('public/main/img/black-logo.png')}}",
+            },
+          });
+        }
+      </script>
 
 </body>
    <!-- Mirrored from templates.envytheme.com/luvion/default/"{{url('/')}}" by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 02 Jan 2020 18:44:23 GMT -->

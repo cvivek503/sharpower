@@ -28,11 +28,14 @@
     </head>
 
     <body onload="hideTotal()">
-        <div id="preloader">
-            <div id="status">
-                <img src="{{asset('public/main/img/logo.png')}}" alt="" />
-            </div>
-        </div>
+          <!--
+      <div class=preloader>
+         <div class=loader>
+            <div class=shadow></div>
+            <div class=box></div>
+         </div>
+      </div>
+        -->
 
         <!-- MAIN WRAPPER
         ============================================= -->

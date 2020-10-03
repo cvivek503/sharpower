@@ -36,12 +36,14 @@
     <script src="https://js.paystack.co/v1/inline.js"></script>
    </head>
    <body>
+        <!--
       <div class=preloader>
          <div class=loader>
             <div class=shadow></div>
             <div class=box></div>
          </div>
       </div>
+        -->
       <div class="navbar-area navbar-style-two">
          <div class=luvion-responsive-nav>
             <div class=container>

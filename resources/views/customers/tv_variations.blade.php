@@ -36,12 +36,14 @@
     <script src="https://js.paystack.co/v1/inline.js"></script>
    </head>
    <body>
+        <!--
       <div class=preloader>
          <div class=loader>
             <div class=shadow></div>
             <div class=box></div>
          </div>
       </div>
+    -->
       <div class="navbar-area navbar-style-two">
          <div class=luvion-responsive-nav>
             <div class=container>
@@ -204,6 +206,7 @@
             }
         </script>
     </form>
+    
 </body>
    <!-- Mirrored from templates.envytheme.com/luvion/default/"{{url('/')}}" by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 02 Jan 2020 18:44:23 GMT -->
 </html>

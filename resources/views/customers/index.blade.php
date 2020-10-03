@@ -12,15 +12,18 @@
             color:#ee0979;
             padding-top: 50px,
         }
+        
     </style>
    </head>
    <body>
+       <!--
       <div class=preloader>
          <div class=loader>
             <div class=shadow></div>
             <div class=box></div>
          </div>
       </div>
+    -->
       <div class="navbar-area navbar-style-two">
          <div class=luvion-responsive-nav>
             <div class=container>
@@ -63,14 +66,17 @@
         <div class=container>
            <div class=featured-boxes-inner>
               <div class="row m-0">
-                 <div class="col-lg-3 col-sm-6 col-md-6 p-0">
+                <a href="{{url('electricity')}}" class="buy">
+                <div class="col-lg-3 col-sm-6 col-md-6 p-0">
                     <div class=single-featured-box>
                        <div class="icon color-fb7756"> <i class="fa fa-bolt"></i> </div>
                        <h3>Buy Electricity</h3>
                        <p>Where ever you are in Nigeria, we have you covered with our flexible payment methods.</p>
                        <a href="{{url('electricity')}}" class="buy">Buy now</a> 
                     </div>
-                 </div>
+                </div>
+                </a>
+                <a href="{{url('airtime')}}" class="buy">
                  <div class="col-lg-3 col-sm-6 col-md-6 p-0">
                     <div class=single-featured-box>
                        <div class="icon color-facd60"> <i class="fa fa-phone"></i> </div>
@@ -79,6 +85,8 @@
                        <a href="{{url('airtime')}}" class="buy">Buy now</a> 
                     </div>
                  </div>
+                </a>
+                <a href="{{url('data')}}" class="buy">
                  <div class="col-lg-3 col-sm-6 col-md-6 p-0">
                     <div class=single-featured-box>
                        <div class="icon color-1ac0c6"> <i class="fas fa-broadcast-tower"></i> </div>
@@ -87,6 +95,8 @@
                        <a href="{{url('data')}}" class="buy">Buy now</a> 
                     </div>
                  </div>
+                </a>
+                <a href="{{url('tv')}}" class="buy">
                  <div class="col-lg-3 col-sm-6 col-md-6 p-0">
                     <div class=single-featured-box>
                        <div class=icon> <i class="fa fa-tv"></i> </div>
@@ -95,6 +105,7 @@
                        <a href="{{url('tv')}}" class="buy">Buy now</a> 
                     </div>
                  </div>
+                </a>
               </div>
            </div>
         </div>
@@ -105,16 +116,15 @@
             <div class=overview-box>
                <div class=overview-content>
                   <div class="content left-content">
-                     <h2>Why choose SharpPower</h2>
+                     <h2>Features</h2>
                      <div class=bar></div>
                      <p>Our servies are top notch with utmost priprity on security and speed. We also have your convinience in mind thats why we give you the underlisted priviledges</p>
                      <ul class=services-list>
-                        <li><span><i class=flaticon-check-mark></i> Buy Now, Pay in 14 Days</span></li>
-                        <li><span><i class=flaticon-check-mark></i> Pay with USSD.</span></li>
-                        <li><span><i class=flaticon-check-mark></i> Unit Calculator</span></li>
-                        <li><span><i class=flaticon-check-mark></i> 100% transparent costs</span></li>
-                        <li><span><i class=flaticon-check-mark></i> Real-time spending overview</span></li>
-                        <li><span><i class=flaticon-check-mark></i> Full data privacy compliance</span></li>
+                        <li><span><i class=flaticon-check-mark></i> Pay with USSD</span></li>
+                        <li><span><i class=flaticon-check-mark></i> Real Time Spending Overview</span></li>
+                        <li><span><i class=flaticon-check-mark></i> Instant Wallet</span></li>
+                        <li><span><i class=flaticon-check-mark></i> 1Buy Now, pay in 14 days</span></li>
+                        <li><span><i class=flaticon-check-mark></i> Full Data Privacy Compliance</span></li>
                      </ul>
                   </div>
                </div>

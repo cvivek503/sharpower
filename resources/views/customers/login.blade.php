@@ -76,12 +76,14 @@
     </head>
 
         <!-- Preloader -->
-        <div class="preloader">
-            <div class="loader">
-                <div class="shadow"></div>
-                <div class="box"></div>
-            </div>
-        </div>
+          <!--
+      <div class=preloader>
+         <div class=loader>
+            <div class=shadow></div>
+            <div class=box></div>
+         </div>
+      </div>
+    -->
         <!-- End Preloader -->
 
         <!-- Start Login Area -->

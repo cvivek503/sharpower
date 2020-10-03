@@ -30,12 +30,14 @@
     </style>
    </head>
    <body>
+        <!--
       <div class=preloader>
          <div class=loader>
             <div class=shadow></div>
             <div class=box></div>
          </div>
       </div>
+        -->
       <div class="navbar-area navbar-style-two">
          <div class=luvion-responsive-nav>
             <div class=container>
@@ -67,7 +69,91 @@
     <!-- End Page Title Area -->
 
     <section class="pricing-area ptb-70">
-        <div class="container">
+        <div class="container contact-form">
+            <div class="row">
+                <div class="col-md-7">
+                    <form class="form-horizontal m-t-30" id="contact-form" method="POST" action="{{url('customers/verify_meter')}}">
+                        {{ csrf_field() }}
+                        <div class="form-group">
+                            <div class="col-12">
+                                <label>State</label>
+                                <select class="form-control"  name="disco" required >
+                                    <option value="ikeja-electric">Lagos - Ikeja</option>
+                                    <option value="eko-electric">Lagos - Eko</option>
+                                    {{--<option value="Abia">Abia</option>--}}
+                                    {{--<option value="Adamawa">Adamawa</option>--}}
+                                    <option value="portharcourt-electric">Akwa Ibom</option>
+                                    {{--<option value="Anambra">Anambra</option>--}}
+                                    <option value="jos-electric">Bauchi</option>
+                                    <option value="portharcourt-electric">Bayelsa</option>
+                                    <option value="jos-electric">Benue</option>
+                                    {{--<option value="Borno">Borno</option>--}}
+                                    <option value="portharcourt-electric">Cross River</option>
+                                    {{--<option value="Delta">Delta</option>--}}
+                                    {{--<option value="Ebonyi">Ebonyi</option>--}}
+                                    {{--<option value="Edo">Edo</option>--}}
+                                    <option value="ibadan-electric">Ekiti</option>
+                                    {{--<option value="Enugu">Enugu</option>--}}
+                                    <option value="abuja-electric">Federal Capital Territory</option>
+                                    <option value="jos-electric">Gombe</option>
+                                    {{--<option value="Imo">Imo</option>--}}
+                                    <option value="kano-electric">Jigawa</option>
+                                    <option value="kaduna-electric">Kaduna</option>
+                                    <option value="kano-electric">Kano</option>
+                                    <option value="kano-electric">Katsina</option>
+                                    <option value="kaduna-electric">Kebbi</option>
+                                    <option value="abuja-electric">Kogi</option>
+                                    <option value="ibadan-electric">Kwara</option>
+                                    {{--<option value="Nasarawa">Nasarawa</option>--}}
+                                    <option value="abuja-electric">Niger</option>
+                                    <option value="ibadan-electric">Ogun</option>
+                                    {{--<option value="Ondo">Ondo</option>--}}
+                                    <option value="ibadan-electric">Osun</option>
+                                    <option value="ibadan-electric">Oyo</option>
+                                    <option value="jos-electric">Plateau</option>
+                                    <option value="portharcourt-electric">Rivers</option>
+                                    <option value="kaduna-electric">Sokoto</option>
+                                    {{--<option value="Taraba">Taraba</option>--}}
+                                    {{--<option value="Yobe">Yobe</option>--}}
+                                    <option value="kaduna-electric">Zamfara</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-12">
+                                <label>Meter number</label>
+                                <input class="form-control" type="number" id="meter_number" name="meter_number" required >
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-12">
+                                <label>Amount(N)</label>
+                                <input class="form-control" type="number" id="price" name="price" required >
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-12">
+                                <label>Meter type</label>
+                                <select class="form-control" type="type" id="type" name="type" required >
+                                    <option value="prepaid">Prepaid</option>
+                                    <option value="postpaid">Postpaid</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group text-center m-t-20">
+                            <div class="col-12">
+                                <button class="btn btn-primary btn-block btn-lg waves-effect waves-light" type="submit">Verify</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="col-md-5 d-none d-md-block">
+                    <div class="about-image">
+                        <img src="{{asset('public/main/img/light2.jpg')}}" alt="image">
+                    </div>
+                </div>
+            </div>
+            {{--
             <div class="row">
                 <div class="col-lg-4 col-md-6 col-sm-6">
                     <div class="single-pricing-box" style="min-height: 258px">
@@ -215,6 +301,7 @@
                     </div>
                 </div>
             </div>
+            --}}
         </div>
     </section>
       
